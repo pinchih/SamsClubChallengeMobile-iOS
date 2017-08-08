@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		A1CE91871F392D8500552258 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE91861F392D8500552258 /* AppDelegate.swift */; };
-		A1CE91891F392D8500552258 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE91881F392D8500552258 /* ViewController.swift */; };
-		A1CE918C1F392D8500552258 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1CE918A1F392D8500552258 /* Main.storyboard */; };
 		A1CE918E1F392D8500552258 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1CE918D1F392D8500552258 /* Assets.xcassets */; };
 		A1CE91911F392D8500552258 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1CE918F1F392D8500552258 /* LaunchScreen.storyboard */; };
+		A1CE91991F392E7000552258 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE91981F392E7000552258 /* ProductViewController.swift */; };
+		A1CE919E1F39304400552258 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE919D1F39304400552258 /* ProductDetailViewController.swift */; };
+		A1CE91A01F39319300552258 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE919F1F39319300552258 /* Product.swift */; };
+		A1CE91A21F39351300552258 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE91A11F39351300552258 /* ProductCollectionViewCell.swift */; };
+		A1CE91A51F39361C00552258 /* NetworkActivityDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE91A41F39361C00552258 /* NetworkActivityDisplayable.swift */; };
+		A1CE91A81F3937AD00552258 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE91A71F3937AD00552258 /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A1CE91831F392D8500552258 /* Sam'sClubChallengeMobile-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sam'sClubChallengeMobile-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CE91861F392D8500552258 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A1CE91881F392D8500552258 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A1CE918B1F392D8500552258 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A1CE918D1F392D8500552258 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1CE91901F392D8500552258 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1CE91921F392D8500552258 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1CE91981F392E7000552258 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		A1CE919D1F39304400552258 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		A1CE919F1F39319300552258 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		A1CE91A11F39351300552258 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		A1CE91A41F39361C00552258 /* NetworkActivityDisplayable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityDisplayable.swift; sourceTree = "<group>"; };
+		A1CE91A71F3937AD00552258 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +63,57 @@
 			isa = PBXGroup;
 			children = (
 				A1CE91861F392D8500552258 /* AppDelegate.swift */,
-				A1CE91881F392D8500552258 /* ViewController.swift */,
-				A1CE918A1F392D8500552258 /* Main.storyboard */,
+				A1CE919C1F39301200552258 /* Model */,
+				A1CE919B1F39300600552258 /* Views */,
+				A1CE919A1F392FFB00552258 /* ViewControllers */,
+				A1CE91A61F39379C00552258 /* Extension */,
+				A1CE91A31F3935E300552258 /* Protocol */,
 				A1CE918D1F392D8500552258 /* Assets.xcassets */,
 				A1CE918F1F392D8500552258 /* LaunchScreen.storyboard */,
 				A1CE91921F392D8500552258 /* Info.plist */,
 			);
 			path = "Sam'sClubChallengeMobile-iOS";
+			sourceTree = "<group>";
+		};
+		A1CE919A1F392FFB00552258 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A1CE91981F392E7000552258 /* ProductViewController.swift */,
+				A1CE919D1F39304400552258 /* ProductDetailViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A1CE919B1F39300600552258 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A1CE91A11F39351300552258 /* ProductCollectionViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A1CE919C1F39301200552258 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A1CE919F1F39319300552258 /* Product.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A1CE91A31F3935E300552258 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				A1CE91A41F39361C00552258 /* NetworkActivityDisplayable.swift */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
+		A1CE91A61F39379C00552258 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A1CE91A71F3937AD00552258 /* UIView+Extension.swift */,
+			);
+			name = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +178,6 @@
 			files = (
 				A1CE91911F392D8500552258 /* LaunchScreen.storyboard in Resources */,
 				A1CE918E1F392D8500552258 /* Assets.xcassets in Resources */,
-				A1CE918C1F392D8500552258 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,22 +188,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1CE91891F392D8500552258 /* ViewController.swift in Sources */,
+				A1CE91A51F39361C00552258 /* NetworkActivityDisplayable.swift in Sources */,
+				A1CE91A81F3937AD00552258 /* UIView+Extension.swift in Sources */,
 				A1CE91871F392D8500552258 /* AppDelegate.swift in Sources */,
+				A1CE91A01F39319300552258 /* Product.swift in Sources */,
+				A1CE91A21F39351300552258 /* ProductCollectionViewCell.swift in Sources */,
+				A1CE91991F392E7000552258 /* ProductViewController.swift in Sources */,
+				A1CE919E1F39304400552258 /* ProductDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A1CE918A1F392D8500552258 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1CE918B1F392D8500552258 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A1CE918F1F392D8500552258 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
