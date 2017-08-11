@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Product:NSObject{
+public class Product:NSObject{
     
     /*
     productId : Unique Id of the product
@@ -33,7 +33,7 @@ class Product:NSObject{
     var reviewCount : UInt?
     var inStock : Bool?
     
-    convenience init(id:String,name:String,shortDescription:String,longDescription:String,price:String,imageURLString:String,rating:Float,count:UInt,inStock:Bool){
+    convenience init(id:String?,name:String?,shortDescription:String?,longDescription:String?,price:String?,imageURLString:String?,rating:Float?,count:UInt?,inStock:Bool?){
         
         self.init()
         
@@ -43,7 +43,7 @@ class Product:NSObject{
         self.longDescription = longDescription
         self.price = price
         
-        if let url = URL(string: imageURLString){
+        if let url = URL(string: imageURLString ?? ""){
             self.imageURL = url
         }
         

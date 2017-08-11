@@ -31,7 +31,7 @@ protocol NetworkActivityDisplayable {
     var errorView : UILabel { get }
     var networkStatus : NetworkResult<returnedData> { get set }
     
-    func update()
+    func updateNetworkStatus()
     
 }
 
@@ -45,21 +45,20 @@ protocol NetworkActivityDisplayable {
 /// IMPORTANT: Call this function in the viewDidLoad function, which makes sure the loadingView and errorView are layouted properly.
 extension NetworkActivityDisplayable where Self : UIViewController {
     
-    func setupNetworkActivityDisplayableView(){
+    func setupNetworkActivityDisplayableViews(){
         
         view.addSubview(loadingView)
-        loadingView.translatesAutoresizingMaskIntoConstraints = false
         
         loadingView.centerToSuperView()
-        loadingView.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 0.8).isActive = true
         
         view.addSubview(errorView)
+        
         errorView.centerToSuperView()
         errorView.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 0.8).isActive = true
         
     }
     
-    func update(){
+    func updateNetworkStatus(){
         
         switch networkStatus{
             
