@@ -100,6 +100,8 @@ extension ProductDetailViewController {
         self.productCounts = newCount
         self.collectionView.reloadData()
         
+        isFetchingProducts = false
+        
     }
     
     fileprivate func setupViews(){
@@ -127,7 +129,7 @@ extension ProductDetailViewController {
             cell.productPriceLabel.text = product.price
             cell.ratingView.rating = Double(product.reviewRating ?? 0.0)
             cell.ratingView.text = product.reviewCount.flatMap({ return "(\($0))"})
-            cell.longDescriptionLabel.loadHTMLString(product.longDescription ?? "", baseURL: nil)
+            cell.longDescriptionTextView.attributedText = self.convert(string: product.longDescription ?? "")
             cell.inStockTextLabel.text = (product.inStock ?? false) ? ProductAvailablity.inStock.rawValue : ProductAvailablity.outOfStock.rawValue
             cell.inStockTextLabel.textColor = (product.inStock ?? false) ? UIColor(red:0.99, green:0.60, blue:0.15, alpha:1.00) : .red
             
@@ -153,6 +155,28 @@ extension ProductDetailViewController {
         }
         
     }
+    
+    fileprivate func convert(string: String) -> NSAttributedString? {
+        
+        guard let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true) else { return nil }
+        
+        do {
+            
+            let str = try NSMutableAttributedString(data: data,
+                                             options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+                                             documentAttributes: nil)
+            return str
+            
+        } catch {
+            
+            print("Error converting string to NSAttributedString")
+            
+        }
+        
+        return nil
+        
+    }
+    
 }
 
 //MARK:- UICollectionViewDelegate,UICollectionViewDataSource
@@ -165,12 +189,7 @@ extension ProductDetailViewController:UICollectionViewDelegate,UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductDetailCollectionViewCell.cellID(), for: indexPath) as! ProductDetailCollectionViewCell
-        
-//        if indexPath.row <= productIndex!{
-            configure(cell, for: indexPath.row)
-//        }else{
-//            configure(cell, for: productIndex! + indexPath.row)
-//        }
+        configure(cell, for: indexPath.row)
         
         return cell
         
@@ -186,15 +205,10 @@ extension ProductDetailViewController:UICollectionViewDelegate,UICollectionViewD
             
         }
         
-        print("Willdisplay item at index:\(indexPath.row)")
         
         if let cell = collectionView.cellForItem(at: indexPath) as? ProductDetailCollectionViewCell{
             
-            //if indexPath.row <= productIndex!{
-                configure(cell, for: indexPath.row)
-            //}else{
-                //configure(cell, for: productIndex! + indexPath.row)
-            //}
+            configure(cell, for: indexPath.row)
             
         }
         
@@ -204,40 +218,13 @@ extension ProductDetailViewController:UICollectionViewDelegate,UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         
-        if indexPath.row == productCounts! - 2 {
-            
-            /*
-            let indexPath = IndexPath(row: productCounts! - 1, section: 0)
-            productCounts! += 1
-            
-            UIView.performWithoutAnimation {
-                
-                self.collectionView.insertItems(at: [indexPath])
-
-            }
-            */
-            
-            // Load more data
-            //NotificationCenter.default.post(Notification.init(name: Notification.Name.init(rawValue: "test")))
+        if indexPath.row == productCounts! - 2 && !isFetchingProducts{
+            isFetchingProducts = true
             delegate?.shouldFetchProducts()
-            
         }
- 
-        /*
-        else if indexPath.row == 0{
-            
-            let indexPath = IndexPath(row:0, section: 0)
-            productCounts += 1
-            
-            UIView.performWithoutAnimation {
-                self.collectionView.insertItems(at: [indexPath])
-                //                collectionView.reloadData()
-            }
-            
-        }
-        */
-        //print("DidEndDisplay item at index:\(indexPath.row)")
+        
     }
+    
 }
 
 //MARK:- UICollectionViewDelegateFlowLayout
