@@ -78,7 +78,7 @@ extension ProductViewController{
         
         setupViews()
         
-        fetchProducts(withLoadingViewPresented:true)
+        fetchProducts()
         
     }
     
@@ -115,25 +115,14 @@ extension ProductViewController{
         navigationItem.title = "WalmartLab"
     }
     
-    @objc fileprivate func test(){
-        
-        isFetchingProducts = true
-        
-        currentPageNumber += 1
-        
-        NetworkManger.shared.fetchProductsForPage(number: currentPageNumber, size: pageSize) { (result) in
-            self.configureNetworkResult(result)
-            self.isFetchingProducts = false
-            
-        }
-        
-    }
-    
-    fileprivate func fetchProducts(withLoadingViewPresented:Bool){
+    fileprivate func fetchProducts(){
         
         
-        if withLoadingViewPresented {
-            networkStatus = NetworkResult<[Product]>.loading
+        switch networkStatus {
+            case .uninitialized:
+                networkStatus = NetworkResult<[Product]>.loading
+            default:
+                break
         }
         
         isFetchingProducts = true
@@ -213,8 +202,9 @@ extension ProductViewController : UICollectionViewDelegate, UICollectionViewData
         // If this cell is the last cell and we're not currently fetching any data, load more data from the server
         if indexPath.row == products.count - 1 && isFetchingProducts == false {
             print("[DEBUG] Current page number : \(currentPageNumber)")
-            fetchProducts(withLoadingViewPresented:false)
+            fetchProducts()
         }
+                
         
         return cell
         
@@ -256,17 +246,14 @@ extension ProductViewController :ProductDetailViewControllerDelegate{
     
     func productAt(Index: Int) -> Product? {
         
-        if Index < products.count {
-            
-            //print("Index:\(Index)")
+        if Index < products.count {                        
             
             return products[Index]
             
         }else{
             
             // Load more data
-            print("Load more data...")
-            fetchProducts(withLoadingViewPresented: false)
+            fetchProducts()
             
             return nil
         }
@@ -275,7 +262,7 @@ extension ProductViewController :ProductDetailViewControllerDelegate{
  
     func shouldFetchProducts() {
         
-        test()
+        fetchProducts()
         
     }
 }
