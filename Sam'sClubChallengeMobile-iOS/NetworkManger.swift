@@ -118,12 +118,8 @@ extension NetworkManger{
             completion(NetworkResult<UIImage>.success(data: image))
             return
         }
-        
-        let taskConfiguration = URLSessionConfiguration.default
-        
-        let taskSession = URLSession(configuration: taskConfiguration)
-        
-        let task = taskSession.dataTask(with: url) { (data, response, error) in
+                
+        let task = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error)  in
             
             if let e = error {
                 
@@ -137,9 +133,8 @@ extension NetworkManger{
                 
                 if let d = data, let image = UIImage.init(data: d) {
                     
-                    self.imageCache.setObject(image, forKey: url as NSURL)
-                    
                     DispatchQueue.main.async {
+                        self?.imageCache.setObject(image, forKey: url as NSURL)
                         completion(NetworkResult<UIImage>.success(data: image))
                     }
                     
