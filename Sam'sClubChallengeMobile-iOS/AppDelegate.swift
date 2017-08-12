@@ -11,7 +11,6 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder {
 
-    // Attributes
     var window: UIWindow?
 
 }

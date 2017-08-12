@@ -65,17 +65,19 @@ extension NetworkManger{
         }
         
         
-//        let jsonURL = Bundle.main.url(forResource: "sample", withExtension: "json")!
-//        
-//        let jsonData = try! Data.init(contentsOf: jsonURL)
-//        
-//        
-//        DispatchQueue.main.async {
-//            
-//            completion(self.parseJSON(jsonData))
-//            
-//        }
+        /* For testing purposed
+         
+        let jsonURL = Bundle.main.url(forResource: "sample", withExtension: "json")!
         
+        let jsonData = try! Data.init(contentsOf: jsonURL)
+        
+        
+        DispatchQueue.main.async {
+            
+            completion(self.parseJSON(jsonData))
+            
+        }
+        */
 
         let task = URLSession.shared.dataTask(with:url) { (data, response, error) in
          
@@ -186,6 +188,10 @@ extension NetworkManger {
     }
     
     
+    /// This function take a Data object and convert it to a Json object, and finally take the Json object and
+    /// convert it to an array of Product objects
+    /// - Parameter Data: A Data object that returned from the server call
+    /// - Returns: A NetworkResult that holds an array of Product objects
     fileprivate func parseJSON(_ Data:Data?)->NetworkResult<[Product]>{
         
         guard let d = Data else {
