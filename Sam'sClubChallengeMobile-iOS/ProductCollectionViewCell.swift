@@ -48,8 +48,8 @@ class ProductCollectionViewCell:UICollectionViewCell{
         
        let view = CosmosView(frame: .zero)
        view.translatesAutoresizingMaskIntoConstraints = false
-       view.settings.starSize = 15.0
-       view.settings.starMargin = 3.0
+       view.settings.starSize = 13.0
+       view.settings.starMargin = 1.0
        view.settings.updateOnTouch = false
        return view
         

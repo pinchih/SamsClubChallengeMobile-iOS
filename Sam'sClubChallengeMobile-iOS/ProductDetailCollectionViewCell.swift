@@ -34,6 +34,7 @@ class ProductDetailCollectionViewCell : UICollectionViewCell{
     let scrollViewContentView : UIView = {
         
         let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false        
         return view
         
     }()
@@ -63,7 +64,7 @@ class ProductDetailCollectionViewCell : UICollectionViewCell{
     var productPriceLabel : UILabel = {
         
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor(red:0.99, green:0.60, blue:0.15, alpha:1.00)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
@@ -75,8 +76,8 @@ class ProductDetailCollectionViewCell : UICollectionViewCell{
         
         let view = CosmosView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.settings.starSize = 20.0
-        view.settings.starMargin = 3.0
+        view.settings.starSize = 18.0
+        view.settings.starMargin = 2.0
         view.settings.updateOnTouch = false
         return view
         
@@ -85,7 +86,7 @@ class ProductDetailCollectionViewCell : UICollectionViewCell{
     var inStockTextLabel : UILabel = {
         
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.font = UIFont.boldSystemFont(ofSize: 14)
         label.textColor = UIColor(red:0.99, green:0.60, blue:0.15, alpha:1.00)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
@@ -93,17 +94,14 @@ class ProductDetailCollectionViewCell : UICollectionViewCell{
         
     }()
     
-    var longDescriptionLabel : WKWebView = {
-       
-        let configuration = WKWebViewConfiguration()
-        configuration.preferences.minimumFontSize = 100
-        let label = WKWebView(frame: .zero, configuration:configuration)
-        //label.numberOfLines = 3
-        label.translatesAutoresizingMaskIntoConstraints = false
+    var longDescriptionTextView : UITextView = {
         
-        //label.font = UIFont.systemFont(ofSize: 10)
-        //label.textColor = .lightGray
-        return label
+        let textView = UITextView()
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.isEditable = false
+        textView.isScrollEnabled = false
+        
+        return textView
         
     }()
     
@@ -140,20 +138,22 @@ extension ProductDetailCollectionViewCell{
         
         
         contentView.addSubview(scrollView)
-        
-        scrollViewContentView.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: 1200)
-        
         scrollView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         scrollView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
         scrollView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
-        scrollView.contentSize = CGSize(width: scrollViewContentView.frame.width, height: scrollViewContentView.frame.height)
+        
         
         scrollView.addSubview(scrollViewContentView)
+        scrollViewContentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        scrollViewContentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor).isActive = true
+        scrollViewContentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
+        scrollViewContentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        scrollViewContentView.widthAnchor.constraint(equalToConstant: self.contentView.frame.width).isActive = true
+        
         
         scrollViewContentView.addSubview(productImageView)
-        
         productImageView.topAnchor.constraint(equalTo: scrollViewContentView.topAnchor, constant: 10).isActive = true
         productImageView.leftAnchor.constraint(equalTo: scrollViewContentView.leftAnchor, constant: 10).isActive = true
         productImageView.rightAnchor.constraint(equalTo: scrollViewContentView.rightAnchor, constant: -10).isActive = true
@@ -177,18 +177,19 @@ extension ProductDetailCollectionViewCell{
         ratingView.centerYAnchor.constraint(equalTo: productPriceLabel.centerYAnchor).isActive = true
         ratingView.leftAnchor.constraint(equalTo: productPriceLabel.rightAnchor,constant:1).isActive = true
         ratingView.centerXAnchor.constraint(equalTo: productImageView.centerXAnchor).isActive = true
-        //ratingView.rightAnchor.constraint(equalTo: productNameLabel.rightAnchor,constant:-1).isActive = true
+        ratingView.widthAnchor.constraint(lessThanOrEqualToConstant: 130).isActive = true
+        
         
         inStockTextLabel.topAnchor.constraint(equalTo: productPriceLabel.topAnchor).isActive = true
         inStockTextLabel.rightAnchor.constraint(equalTo: productNameLabel.rightAnchor,constant:-1).isActive = true
         inStockTextLabel.widthAnchor.constraint(equalTo: productPriceLabel.widthAnchor).isActive = true
         inStockTextLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
-        scrollViewContentView.addSubview(longDescriptionLabel)
-        longDescriptionLabel.topAnchor.constraint(equalTo: productPriceLabel.bottomAnchor,constant:10).isActive = true
-        longDescriptionLabel.leftAnchor.constraint(equalTo: scrollViewContentView.leftAnchor,constant:10).isActive = true
-        longDescriptionLabel.rightAnchor.constraint(equalTo: scrollViewContentView.rightAnchor,constant:-10).isActive = true
-        longDescriptionLabel.bottomAnchor.constraint(equalTo: scrollViewContentView.bottomAnchor,constant:-10).isActive = true
+        scrollViewContentView.addSubview(longDescriptionTextView)
+        longDescriptionTextView.topAnchor.constraint(equalTo: productPriceLabel.bottomAnchor,constant:10).isActive = true
+        longDescriptionTextView.leftAnchor.constraint(equalTo: scrollViewContentView.leftAnchor,constant:10).isActive = true
+        longDescriptionTextView.rightAnchor.constraint(equalTo: scrollViewContentView.rightAnchor,constant:-10).isActive = true
+        longDescriptionTextView.bottomAnchor.constraint(equalTo: scrollViewContentView.bottomAnchor,constant:-10).isActive = true
         
         
     }
@@ -204,15 +205,3 @@ extension ProductDetailCollectionViewCell{
     
 }
 
-//
-extension ProductDetailCollectionViewCell {
-    
-    override func prepareForReuse() {
-        
-        // Restore initial state for cell reuse
-        
-        
-    }
-    
-    
-}
