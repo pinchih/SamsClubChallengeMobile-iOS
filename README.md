@@ -9,6 +9,6 @@
 [Cosmos](https://github.com/evgenyneu/Cosmos)
 
 # Screenshots
-![Picture alt](https://github.com/pinchih/SamsClubChallengeMobile-iOS/blob/master/Simulator%20Screen%20Shot%20Aug%2013,%202017,%2012.58.40%20AM.png?raw=true)
+<img src="https://github.com/pinchih/SamsClubChallengeMobile-iOS/blob/master/Simulator%20Screen%20Shot%20Aug%2013,%202017,%2012.58.40%20AM.png" height="672" width="375">
 
-![Picture alt](https://github.com/pinchih/SamsClubChallengeMobile-iOS/blob/master/Simulator%20Screen%20Shot%20Aug%2013,%202017,%2012.58.46%20AM.png?raw=true)
+<img src="https://github.com/pinchih/SamsClubChallengeMobile-iOS/blob/master/Simulator%20Screen%20Shot%20Aug%2013,%202017,%2012.58.46%20AM.png" height="672" width="375">
