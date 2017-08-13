@@ -4,8 +4,7 @@ use_frameworks!
 # Pods for Sam'sClubChallengeMobile-iOS
 target "SamsClubChallengeMobile-iOS" do
 
-    pod 'Cosmos', '~> 11.0'
-    pod 'SwiftSoup'
+    pod 'Cosmos', '~> 11.0'    
 
 end
 
