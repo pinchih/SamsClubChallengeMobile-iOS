@@ -112,7 +112,7 @@ extension ProductViewController{
     }
     
     fileprivate func setupNavigationBar(){
-        navigationItem.title = "WalmartLab"
+        navigationItem.title = "Sam's Club"
     }
     
     fileprivate func fetchProducts(){
@@ -155,7 +155,7 @@ extension ProductViewController{
         
     }
     
-    fileprivate func configureImageFetchingNetwork(_ result:NetworkResult<UIImage>,for cell:ProductCollectionViewCell){
+    fileprivate func configureImageFetchingNetworkResult(_ result:NetworkResult<UIImage>,for cell:ProductCollectionViewCell){
         
         switch result{
             
@@ -182,7 +182,7 @@ extension ProductViewController{
         cell.ratingView.text = product.reviewCount.flatMap({ return "(\($0))"})
         
         NetworkManger.shared.fetchImageFor(url:product.imageURL) { (result) in
-            self.configureImageFetchingNetwork(result, for: cell)
+            self.configureImageFetchingNetworkResult(result, for: cell)
         }
         
     }

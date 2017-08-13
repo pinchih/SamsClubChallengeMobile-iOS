@@ -94,6 +94,17 @@ class ProductDetailCollectionViewCell : UICollectionViewCell{
         
     }()
     
+    var shortDescriptionTextView : UITextView = {
+        
+        let textView = UITextView()
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.isEditable = false
+        textView.isScrollEnabled = false
+        
+        return textView
+        
+    }()
+    
     var longDescriptionTextView : UITextView = {
         
         let textView = UITextView()
@@ -185,8 +196,32 @@ extension ProductDetailCollectionViewCell{
         inStockTextLabel.widthAnchor.constraint(equalTo: productPriceLabel.widthAnchor).isActive = true
         inStockTextLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
+        let separator = UIView()
+        separator.backgroundColor = .lightGray
+        scrollViewContentView.addSubview(separator)
+        separator.translatesAutoresizingMaskIntoConstraints = false
+        separator.leftAnchor.constraint(equalTo: scrollViewContentView.leftAnchor,constant:10).isActive = true
+        separator.rightAnchor.constraint(equalTo: scrollViewContentView.rightAnchor,constant:-10).isActive = true
+        separator.topAnchor.constraint(equalTo: inStockTextLabel.bottomAnchor,constant:10).isActive = true
+        separator.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+
+        
+        scrollViewContentView.addSubview(shortDescriptionTextView)
+        shortDescriptionTextView.topAnchor.constraint(equalTo: separator.bottomAnchor,constant:10).isActive = true
+        shortDescriptionTextView.leftAnchor.constraint(equalTo: scrollViewContentView.leftAnchor,constant:10).isActive = true
+        shortDescriptionTextView.rightAnchor.constraint(equalTo: scrollViewContentView.rightAnchor,constant:-10).isActive = true        
+        
+        let separator2 = UIView()
+        separator2.backgroundColor = .lightGray
+        scrollViewContentView.addSubview(separator2)
+        separator2.translatesAutoresizingMaskIntoConstraints = false
+        separator2.leftAnchor.constraint(equalTo: scrollViewContentView.leftAnchor,constant:10).isActive = true
+        separator2.rightAnchor.constraint(equalTo: scrollViewContentView.rightAnchor,constant:-10).isActive = true
+        separator2.topAnchor.constraint(equalTo: shortDescriptionTextView.bottomAnchor).isActive = true
+        separator2.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+        
         scrollViewContentView.addSubview(longDescriptionTextView)
-        longDescriptionTextView.topAnchor.constraint(equalTo: productPriceLabel.bottomAnchor,constant:10).isActive = true
+        longDescriptionTextView.topAnchor.constraint(equalTo: shortDescriptionTextView.bottomAnchor,constant:10).isActive = true
         longDescriptionTextView.leftAnchor.constraint(equalTo: scrollViewContentView.leftAnchor,constant:10).isActive = true
         longDescriptionTextView.rightAnchor.constraint(equalTo: scrollViewContentView.rightAnchor,constant:-10).isActive = true
         longDescriptionTextView.bottomAnchor.constraint(equalTo: scrollViewContentView.bottomAnchor,constant:-10).isActive = true

@@ -10,6 +10,7 @@
 		7C8452D28C855BB7102FA5BD /* Pods_SamsClubChallengeMobile_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2984ACB43FD477E10CE9AE45 /* Pods_SamsClubChallengeMobile_iOS.framework */; };
 		A10C2CA11F3AE16A005FF1E9 /* ProductDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10C2CA01F3AE16A005FF1E9 /* ProductDetailCollectionViewCell.swift */; };
 		A13EDEC21F3D02DA00724851 /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13EDEC11F3D02DA00724851 /* Notification.Name+Extension.swift */; };
+		A1CBBACC1F3EC2DD0040BB84 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CBBACB1F3EC2DD0040BB84 /* Color.swift */; };
 		A1CE91871F392D8500552258 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE91861F392D8500552258 /* AppDelegate.swift */; };
 		A1CE918E1F392D8500552258 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1CE918D1F392D8500552258 /* Assets.xcassets */; };
 		A1CE91911F392D8500552258 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1CE918F1F392D8500552258 /* LaunchScreen.storyboard */; };
@@ -32,6 +33,7 @@
 		938E59C9EC076D5D9FD61EF2 /* Pods-Sam'sClubChallengeMobile-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sam'sClubChallengeMobile-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sam'sClubChallengeMobile-iOS/Pods-Sam'sClubChallengeMobile-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		A10C2CA01F3AE16A005FF1E9 /* ProductDetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		A13EDEC11F3D02DA00724851 /* Notification.Name+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Extension.swift"; sourceTree = "<group>"; };
+		A1CBBACB1F3EC2DD0040BB84 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		A1CE91831F392D8500552258 /* SamsClubChallengeMobile-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SamsClubChallengeMobile-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CE91861F392D8500552258 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1CE918D1F392D8500552258 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				A1CE91A41F39361C00552258 /* NetworkActivityDisplayable.swift */,
+				A1CBBACB1F3EC2DD0040BB84 /* Color.swift */,
 			);
 			name = Protocol;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				A13EDEC21F3D02DA00724851 /* Notification.Name+Extension.swift in Sources */,
 				A1CE91AB1F397F8900552258 /* NetworkManger.swift in Sources */,
 				A1CE91871F392D8500552258 /* AppDelegate.swift in Sources */,
+				A1CBBACC1F3EC2DD0040BB84 /* Color.swift in Sources */,
 				A1CE91A01F39319300552258 /* Product.swift in Sources */,
 				A10C2CA11F3AE16A005FF1E9 /* ProductDetailCollectionViewCell.swift in Sources */,
 				A1CE91A21F39351300552258 /* ProductCollectionViewCell.swift in Sources */,

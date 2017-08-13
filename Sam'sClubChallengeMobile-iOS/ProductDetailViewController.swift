@@ -130,8 +130,9 @@ extension ProductDetailViewController {
             cell.ratingView.rating = Double(product.reviewRating ?? 0.0)
             cell.ratingView.text = product.reviewCount.flatMap({ return "(\($0))"})
             cell.longDescriptionTextView.attributedText = self.convert(string: product.longDescription ?? "")
+            cell.shortDescriptionTextView.attributedText = self.convert(string: product.shortDescription ?? "")
             cell.inStockTextLabel.text = (product.inStock ?? false) ? ProductAvailablity.inStock.rawValue : ProductAvailablity.outOfStock.rawValue
-            cell.inStockTextLabel.textColor = (product.inStock ?? false) ? UIColor(red:0.99, green:0.60, blue:0.15, alpha:1.00) : .red
+            cell.inStockTextLabel.textColor = (product.inStock ?? false) ? Color.productCollectionViewCellInStockTextColor : Color.productCollectionViewCellOutOfStockTextColor
             
             NetworkManger.shared.fetchImageFor(url:product.imageURL) { (result) in
                 self.configureImageFetchingNetwork(result, for: cell)
