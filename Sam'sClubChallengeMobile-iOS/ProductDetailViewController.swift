@@ -129,8 +129,8 @@ extension ProductDetailViewController {
             cell.productPriceLabel.text = product.price
             cell.ratingView.rating = Double(product.reviewRating ?? 0.0)
             cell.ratingView.text = product.reviewCount.flatMap({ return "(\($0))"})
-            cell.longDescriptionTextView.attributedText = self.convert(string: product.longDescription ?? "")
-            cell.shortDescriptionTextView.attributedText = self.convert(string: product.shortDescription ?? "")
+            cell.longDescriptionTextView.attributedText = self.convert(string: product.longDescription ?? "N/A")
+            cell.shortDescriptionTextView.attributedText = self.convert(string: product.shortDescription ?? "N/A")
             cell.inStockTextLabel.text = (product.inStock ?? false) ? ProductAvailablity.inStock.rawValue : ProductAvailablity.outOfStock.rawValue
             cell.inStockTextLabel.textColor = (product.inStock ?? false) ? Color.productCollectionViewCellInStockTextColor : Color.productCollectionViewCellOutOfStockTextColor
             

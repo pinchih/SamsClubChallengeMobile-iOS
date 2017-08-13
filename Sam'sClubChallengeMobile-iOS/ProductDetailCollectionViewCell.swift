@@ -205,9 +205,18 @@ extension ProductDetailCollectionViewCell{
         separator.topAnchor.constraint(equalTo: inStockTextLabel.bottomAnchor,constant:10).isActive = true
         separator.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
 
+        let specTextLabel = UILabel()
+        specTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        scrollViewContentView.addSubview(specTextLabel)
+        specTextLabel.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 10).isActive = true
+        specTextLabel.leftAnchor.constraint(equalTo: scrollViewContentView.leftAnchor, constant: 10).isActive = true
+        specTextLabel.rightAnchor.constraint(equalTo: scrollViewContentView.rightAnchor, constant: -10).isActive = true
+        specTextLabel.text = "Specs"
+        specTextLabel.font = UIFont.init(name: "HelveticaNeue-Thin", size: 20)
+        specTextLabel.textAlignment = .center
         
         scrollViewContentView.addSubview(shortDescriptionTextView)
-        shortDescriptionTextView.topAnchor.constraint(equalTo: separator.bottomAnchor,constant:10).isActive = true
+        shortDescriptionTextView.topAnchor.constraint(equalTo: specTextLabel.bottomAnchor,constant:10).isActive = true
         shortDescriptionTextView.leftAnchor.constraint(equalTo: scrollViewContentView.leftAnchor,constant:10).isActive = true
         shortDescriptionTextView.rightAnchor.constraint(equalTo: scrollViewContentView.rightAnchor,constant:-10).isActive = true        
         
@@ -220,8 +229,18 @@ extension ProductDetailCollectionViewCell{
         separator2.topAnchor.constraint(equalTo: shortDescriptionTextView.bottomAnchor).isActive = true
         separator2.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
         
+        let specTextLabel2 = UILabel()
+        specTextLabel2.translatesAutoresizingMaskIntoConstraints = false
+        scrollViewContentView.addSubview(specTextLabel2)
+        specTextLabel2.topAnchor.constraint(equalTo: separator2.bottomAnchor, constant: 10).isActive = true
+        specTextLabel2.leftAnchor.constraint(equalTo: scrollViewContentView.leftAnchor, constant: 10).isActive = true
+        specTextLabel2.rightAnchor.constraint(equalTo: scrollViewContentView.rightAnchor, constant: -10).isActive = true
+        specTextLabel2.text = "Product Description"
+        specTextLabel2.textAlignment = .center
+        specTextLabel2.font = UIFont.init(name: "HelveticaNeue-Thin", size: 20)
+        
         scrollViewContentView.addSubview(longDescriptionTextView)
-        longDescriptionTextView.topAnchor.constraint(equalTo: shortDescriptionTextView.bottomAnchor,constant:10).isActive = true
+        longDescriptionTextView.topAnchor.constraint(equalTo: specTextLabel2.bottomAnchor,constant:10).isActive = true
         longDescriptionTextView.leftAnchor.constraint(equalTo: scrollViewContentView.leftAnchor,constant:10).isActive = true
         longDescriptionTextView.rightAnchor.constraint(equalTo: scrollViewContentView.rightAnchor,constant:-10).isActive = true
         longDescriptionTextView.bottomAnchor.constraint(equalTo: scrollViewContentView.bottomAnchor,constant:-10).isActive = true
