@@ -1,4 +1,4 @@
-platform :ios, '10.3'
+platform :ios, '9.0'
 use_frameworks!
 
 # Pods for Sam'sClubChallengeMobile-iOS
